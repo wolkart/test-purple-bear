@@ -1,0 +1,274 @@
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 17px 17px;
+  background: #FFFFFF;
+  box-shadow: 0 5px 10px rgba(127, 127, 127, 0.03),
+  0 3px 4px rgba(127, 127, 127, 0.04),
+  0 1.5px 2px rgba(127, 127, 127, 0.05),
+  0 0.5px 1px rgba(127, 127, 127, 0.12);
+  transition: all 0.3s;
+  @include breakpoint(sm) {
+    padding: 24px 30px 30px;
+    box-shadow: 0px -1px 2px rgba(127, 127, 127, 0.08),
+    0px 15px 30px rgba(127, 127, 127, 0.04),
+    0px 8px 12px rgba(127, 127, 127, 0.07),
+    0px 4px 4px rgba(127, 127, 127, 0.09),
+    0px 1px 4px rgba(127, 127, 127, 0.12);
+    border-bottom-left-radius: 20px;
+  }
+  @include breakpoint(lg) {
+    flex-direction: row;
+    padding: 0;
+    box-shadow: none;
+    border-bottom-left-radius: 0;
+  }
+
+  &__catalog {
+    margin-bottom: 12px;
+    @include breakpoint(sm) {
+      margin-bottom: 0;
+    }
+    @include breakpoint(lg) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__search {
+    @include breakpoint(sm) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    margin: 24px 0;
+    @include breakpoint(lg) {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      flex: 1 1 auto;
+    }
+  }
+
+  &__card-action {
+  }
+}
+
+.main-nav {
+  border-top: 1px solid $grey-light;
+  border-bottom: 1px solid $grey-light;
+  padding: 16px 0;
+  @include breakpoint(lg) {
+    padding: 0;
+    border: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include breakpoint(lg) {
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+      @include breakpoint(lg) {
+        margin-right: 12px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__item-sub {
+    .main-nav__link {
+      display: none;
+      @include breakpoint(lg) {
+        display: flex;
+      }
+    }
+
+    @include hovering {
+      &:hover {
+        .main-nav__link {
+          color: $accent;
+
+          .main-nav__link-icon {
+            transform: rotate(180deg);
+
+            svg path {
+              fill: $accent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $primary-dark;
+    transition: all 0.3s;
+    width: 100%;
+
+    &:active {
+      color: $accent;
+    }
+  }
+
+  &__link-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    transition: all 0.3s;
+  }
+}
+
+.nav-sub {
+  position: relative;
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $primary-dark;
+    border: 0;
+    margin: 0;
+    padding: 8px 16px;
+    background-color: transparent;
+    width: 100%;
+    @include breakpoint(lg) {
+      display: none;
+    }
+
+    &.active {
+      color: $accent;
+
+      .nav-sub__button-icon {
+        transform: rotate(180deg);
+
+        svg path {
+          fill: $accent;
+        }
+      }
+    }
+  }
+
+  &__button-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    transition: all 0.3s;
+  }
+
+  &__list-wrapper {
+    display: none;
+    padding-top: 4px;
+    @include breakpoint(lg) {
+      display: block !important;
+      position: absolute;
+      left: 14px;
+      bottom: 0;
+      transform: translate(0, 102%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s;
+    }
+  }
+
+  &__list {
+    background-color: #fff;
+    flex-direction: column;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    box-shadow: 0 5px 10px rgba(127, 127, 127, 0.03),
+    0 3px 4px rgba(127, 127, 127, 0.04),
+    0 1.5px 2px rgba(127, 127, 127, 0.05),
+    0 0.5px 1px rgba(127, 127, 127, 0.12);
+    border-radius: 12px;
+    @include breakpoint(lg) {
+      box-shadow: 0px -1px 2px rgba(127, 127, 127, 0.08),
+      0px 15px 30px rgba(127, 127, 127, 0.04),
+      0px 8px 12px rgba(127, 127, 127, 0.07),
+      0px 4px 4px rgba(127, 127, 127, 0.09),
+      0px 1px 4px rgba(127, 127, 127, 0.12);
+      width: 278px;
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: $primary-dark;
+    padding: 8px 16px 12px;
+    text-align: center;
+    width: 100%;
+    transition: all 0.3s;
+    @include breakpoint(sm) {
+      max-width: 199px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    @include breakpoint(lg) {
+      padding: 8px 16px;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left;
+      max-width: none;
+      text-overflow: inherit;
+    }
+
+    @include hovering {
+      &:hover {
+        color: $accent;
+      }
+    }
+
+    &:active {
+      color: $accent;
+    }
+  }
+
+  @include hovering {
+    &:hover {
+      .nav-sub__list-wrapper {
+        @include breakpoint(lg) {
+          transform: translate(0, 100%);
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.heading-1 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 32px;
+  color: #FFFFFF;
+  @include breakpoint(sm) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  @include breakpoint(lg) {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+
+.body-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  @include breakpoint(lg) {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

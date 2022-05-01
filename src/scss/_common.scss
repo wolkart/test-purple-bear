@@ -1,0 +1,170 @@
+// https://medium.com/@stasonmars/%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B8%CC%86-%D1%81%D0%B1%D1%80%D0%BE%D1%81-css-f5816963c82b
+// Указываем box sizing
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Roboto:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+// Убираем внутренние отступы
+ul,
+ol {
+  padding: 0;
+}
+
+// Убираем внешние отступы
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+// Выставляем основные настройки по-умолчанию для body
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+// Элементы a, у которых нет класса, сбрасываем до дефолтных стилей
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+// Упрощаем работу с изображениями
+img {
+  display: block;
+  max-width: 100%;
+}
+
+// Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+button {
+  user-select: none;
+}
+
+// Наследуем шрифты для инпутов и кнопок
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// Удаляем все анимации и переходы для людей, которые предпочитай их не использовать
+@media (prefers-reduced-motion: reduce) {
+  button,
+  a {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a {
+  &:focus {
+    outline: none;
+  }
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+.hidden-block {
+  display: none !important;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+:disabled {
+  cursor: default;
+}
+
+html, body {
+  font-family: $font-primary;
+  font-size: $font-size-root;
+  height: 100%;
+}
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 17px;
+
+  @include breakpoint(sm) {
+    padding: 0 30px;
+  }
+
+  @include breakpoint(lg) {
+    padding: 0 15px;
+  }
+}
+
+@keyframes glare {
+  0% {
+    transform: skewX(-25deg) translateX(-100%);
+  }
+  100% {
+    transform: skewX(-25deg) translateX(1200%);
+  }
+}
+
+@keyframes up-and-down {
+  0% {
+    transform: translateY(-5px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-5px);
+    opacity: 0.3;
+  }
+}

@@ -9,6 +9,7 @@
   font-size: 14px;
   line-height: 20px;
   color: $primary-dark;
+  background-color: #fff;
   border: 0;
   transition: all 0.3s;
   @include breakpoint(lg) {
